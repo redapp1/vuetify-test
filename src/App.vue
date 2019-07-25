@@ -26,7 +26,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
-import About from './components/About'
+import About from './views/About'
 
 export default {
   name: 'App',
