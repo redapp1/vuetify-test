@@ -3,3 +3,4 @@
         quran view
     </div>
 </template>
+
