@@ -1,5 +1,5 @@
 <template>
     <div>
-        home view
+        quran view
     </div>
 </template>

@@ -1,16 +1,16 @@
 <template>
     <v-app id="app">
-        <v-container grid-list-md text-center>
-            <v-layout wrap>
-                <v-flex xs12>
+       
                     <Header />
-                </v-flex>
-
-                <v-flex xs12>
+                
+        <v-content>
+            <router-view></router-view>
+        </v-content>
+                
                     <Footer />
-                </v-flex>
-            </v-layout>
-        </v-container>
+                
+
+        
     </v-app>
 </template>
 
