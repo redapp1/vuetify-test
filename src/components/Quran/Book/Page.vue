@@ -14,22 +14,20 @@ import PageFooter from './PageFooter';
 import { QURAN_PAGE_API } from '../../../../config/config';
 
 export default {
-    data() {
-        return {
-            page: []
-        }
-    },
-
     components: {
         PageContent,
         PageHeader,
         PageFooter
     },
 
+    computed: {
+        page() {
+            this.$store.state.page
+        }
+    },
+
     async mounted() {
-        let page = this.$route.params.page;
-        let response = await this.axios.get(QURAN_PAGE_API({page}));
-        this.page = response.data.data;
+        this.$store.dispatch('getQuranPage')
     }
 }
 </script>
