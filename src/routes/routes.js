@@ -9,7 +9,8 @@ Vue.use(VueRouter);
 const routes = [
     { path: '/', component: Home},
     { path: '/quran', redirect: '/quran/page'},
-    { path: '/quran/page', component: Page}
+    { path: '/quran/page', redirect: '/quran/page/1'},
+    { path: '/quran/page/:page', component: Page}
 ]
 
 export default new VueRouter({

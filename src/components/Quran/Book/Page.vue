@@ -27,7 +27,8 @@ export default {
     },
 
     async mounted() {
-        let response = await this.axios.get(QURAN_PAGE_API({page: 2}));
+        let page = this.$route.params.page;
+        let response = await this.axios.get(QURAN_PAGE_API({page}));
         this.page = response.data.data;
     }
 }
