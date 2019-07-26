@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 
-import ar from 'vuetify/lib/locale/ar'
+import ar from 'vuetify/lib/locale/ar';
 
 Vue.use(Vuetify);
 
@@ -11,7 +11,7 @@ export default new Vuetify({
     iconfont: 'mdi',
   },
   theme: {
-    dark: true,
+    dark: false,
   },
 
   lang: {
