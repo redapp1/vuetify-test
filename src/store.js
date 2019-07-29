@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 import { QURAN_PAGE_API } from '../config/config';
 import * as mutations from './mutation-types'
 
@@ -11,21 +12,24 @@ export default new Vuex.Store({
       pageNumber: 1
     },
     mutations: {
-      [mutations.NEXT_QURAN_PAGE] (state) {
-        state.page++
-      },
+      setPageNumber: (state, pageNumber) => {
+        state.pageNumber = pageNumber
+      }
+    },
 
-      [mutations.PREVIOUS_QURAN_PAGE] (state) {
-          state.page--;
+    getters: {
+      getCurrentPage(state) {
+        return state.pageNumber
       }
     },
 
     actions: {
-        async getQuranPage({ commit, state}) {
-            let page = this.$route.params.page;
-            let response = await this.axios.get(QURAN_PAGE_API({page}));
-            console.log(state.page = response.data.data);
+        async getQuranPage({ commit, state}, page) {
+          commit('setPageNumber', page);
 
+          let response = await axios.get(QURAN_PAGE_API({page}));
+            
+            console.log(state.page = response.data.data);
         }
     }
   })

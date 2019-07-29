@@ -1,18 +1,19 @@
 <template>
     <div>
-        <v-bton @click="goToPage(false)"></v-bton>
-        <v-bton @click="goToPage"></v-bton>
-        {{ pageNumber }} 
+        <PaginationButton :isNextPage="false"/>
+        {{ pageNumber }}
+        <PaginationButton :isNextPage="true"/> 
     </div>
 </template>
 
 <script>
+import PaginationButton from './PaginationButton';
+
 export default {
     props: ['pageNumber'],
-    methods: {
-        goToPage(isNext = true) {
-            this.$router.push({name: 'page', params: { page: this.page + 1 }});
-        }
+
+     components: {
+        PaginationButton
     }
 }
 </script>

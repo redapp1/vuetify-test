@@ -1,8 +1,13 @@
 <template>
     <div>
-        <PageHeader :pageNumber="page.number"/>
-        <PageContent :pageAyahs="page.ayahs"/>
-        <PageFooter :pageNumber="page.number"/>
+        <template v-if="page">
+            <PageHeader :pageNumber="page.number"/>
+            <PageContent :pageAyahs="page.ayahs"/>
+            <PageFooter :pageNumber="page.number"/>
+        </template>
+        <template v-else>
+            empty page
+        </template>
     </div>
 </template>
 
@@ -22,12 +27,12 @@ export default {
 
     computed: {
         page() {
-            this.$store.state.page
+            return this.$store.state.page
         }
     },
 
     async mounted() {
-        this.$store.dispatch('getQuranPage')
+        this.$store.dispatch('getQuranPage', +this.$route.params.page)
     }
 }
 </script>
