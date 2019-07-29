@@ -1,36 +1,40 @@
 <template>
-   <v-navigation-drawer
-        v-model="draw"
-        app
-      >
+   <v-card
+      class="mx-10"
+    >
+      <v-list>
         <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-          </v-list-item-avatar>
+          <v-list-item-icon>
+            <v-icon>home</v-icon>
+          </v-list-item-icon>
   
-          <v-list-item-content>
-            <v-list-item-title>John Leider</v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>Home</v-list-item-title>
         </v-list-item>
   
-        <v-divider></v-divider>
-      </v-navigation-drawer>
+        <v-list-group
+          prepend-icon="account_circle"
+          value="true"
+        >
+          <template v-slot:activator>
+            <v-list-item-title>Users</v-list-item-title>
+          </template>
+            <v-list-item
+              link
+            >
+              <v-list-item-title text="gfdf"></v-list-item-title>
+              <v-list-item-icon>
+                <v-icon text="person"></v-icon>
+              </v-list-item-icon>
+            </v-list-item>
+  
+         
+        </v-list-group>
+      </v-list>
+    </v-card>
 </template>
 
 <script>
 export default {
-    props: ['drawer'],
-
-    computed: {
-      draw: {
-        get: function() {
-          return this.drawer
-        },
-
-        set: function(value) {
-          this.$emit('draw', value)
-        }
-      }
-    }
+    
 }
 </script>

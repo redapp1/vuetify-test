@@ -1,9 +1,17 @@
 <template>
     <div>
         <template v-if="page">
-            <PageHeader :pageNumber="page.number"/>
-            <PageContent :pageAyahs="page.ayahs"/>
-            <PageFooter :pageNumber="page.number"/>
+            <v-card class="mt-5">
+                <v-card-title>
+                    <PageHeader :pageNumber="page.number"/>
+                </v-card-title>
+                <v-card-text>
+                    <PageContent :pageAyahs="page.ayahs"/>
+                </v-card-text>
+                <v-card-actions>
+                    <PageFooter :pageNumber="page.number"/>
+                </v-card-actions>     
+            </v-card>
         </template>
         <template v-else>
             empty page
