@@ -19,6 +19,7 @@ import PageFooter from './PageFooter';
 import { QURAN_PAGE_API } from '../../../../config/config';
 
 export default {
+    props: ['pageNumber'],
     components: {
         PageContent,
         PageHeader,
@@ -32,7 +33,7 @@ export default {
     },
 
     async mounted() {
-        this.$store.dispatch('getQuranPage', +this.$route.params.page)
+        this.$store.dispatch('getQuranPage', this.pageNumber)
     }
 }
 </script>
