@@ -2,7 +2,7 @@
     <v-container>
         <QuranNavbar/>
         <v-content>
-            
+           <router-view :key="$route.fullPath"></router-view>
         </v-content>
     </v-container>
 </template>

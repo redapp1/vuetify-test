@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-toolbar>
+        <v-toolbar dense class="grey white--text">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-items>
                 <v-btn text>Arabic</v-btn>

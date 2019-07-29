@@ -8,18 +8,28 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: Home},
-    { path: '/quran', component: Quran},
-    { path: '/quran/page', redirect: '/quran/page/1'},
-    { 
-        path: '/quran/page/:page', 
-        name: 'page', 
-        component: Page,
-        props: (route) => ({ pageNumber: +route.params.page }),
-        beforeEnter: (to, from, next) => {
-            if (to.params.page > 0 && to.params.page < 605) next()
+    { path: '/quran', 
+      component: Quran,
+      redirec: '/quran/page',
+      beforeEnter: (to, from, next) => {
+        if (to.params.page) next()
 
-            next('/quran/page/1')
-          },
+        next('/quran/page/1')
+      },
+      children: [
+        {path: 'page', redirect: 'page/1'},
+        { 
+            path: 'page/:page', 
+            name: 'page', 
+            component: Page,
+            props: (route) => ({ pageNumber: +route.params.page }),
+            beforeEnter: (to, from, next) => {
+                if (to.params.page > 0 && to.params.page < 605) next()
+    
+                next('/quran/page/1')
+              },
+        }
+      ]
     }
 ]
 

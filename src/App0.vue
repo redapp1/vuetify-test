@@ -2,7 +2,7 @@
     <v-app id="app">
         <Header />       
         <v-content>
-            <router-view :key="$route.fullPath"></router-view>
+            <router-view></router-view>
         </v-content>        
         <Footer />
         
