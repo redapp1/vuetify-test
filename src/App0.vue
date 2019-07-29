@@ -1,11 +1,9 @@
 <template>
     <v-app id="app">
-        <Header />
-                
+        <Header />       
         <v-content>
             <router-view :key="$route.fullPath"></router-view>
-        </v-content>
-                
+        </v-content>        
         <Footer />
         
     </v-app>
