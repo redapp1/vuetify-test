@@ -1,5 +1,5 @@
 <template>
-    <v-btn @click="goToPage">
+    <v-btn @click="goToPage" :disabled="disabled" x-small>
         <template v-if="isNextPage">
             <v-icon>navigate_next</v-icon>
         </template>
@@ -13,16 +13,24 @@
 export default {
     props: ['isNextPage'],
 
+    computed: {
+        currentPage() {
+            return this.$store.getters.getCurrentPage
+        }, 
+
+        disabled() {
+            console.log(this.currentPage)
+            return this.isNextPage && this.currentPage > 603 ||
+                    !this.isNextPage && this.currentPage < 2
+        }
+    },
+
     methods: {
         goToPage() {
             let currentPageNumber = this.$store.getters.getCurrentPage;
-
-            console.log(`current page ${currentPageNumber}`)
-
             let nextPageNumber = this.isNextPage ? currentPageNumber + 1 : currentPageNumber - 1 
             
-            console.log(`next page ${nextPageNumber}`)
-            this.$router.push({name: 'page', params: {page: nextPageNumber}})
+            this.$router.push({name: 'page', params: { page: nextPageNumber }})
         }
     }
 }

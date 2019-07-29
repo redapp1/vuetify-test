@@ -29,7 +29,7 @@ export default new Vuex.Store({
 
           let response = await axios.get(QURAN_PAGE_API({page}));
             
-            console.log(state.page = response.data.data);
+          state.page = response.data.data;
         }
     }
   })

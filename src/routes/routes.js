@@ -14,7 +14,12 @@ const routes = [
         path: '/quran/page/:page', 
         name: 'page', 
         component: Page,
-        props: (route) => ({ pageNumber: +route.params.page })
+        props: (route) => ({ pageNumber: +route.params.page }),
+        beforeEnter: (to, from, next) => {
+            if (to.params.page > 0 && to.params.page < 605) next()
+
+            next('/quran/page/1')
+          },
     }
 ]
 
