@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import { QURAN_PAGE_API } from '../config/config';
+import { QURAN_PAGE_API, QURAN_EDITIONS_API } from '../config/config';
 import * as mutations from './mutation-types'
 
 Vue.use(Vuex)
@@ -12,7 +12,8 @@ export default new Vuex.Store({
       translatedPage: {},
       pageNumber: 1,
       edition: 'en.asad', 
-      isTranslated: false
+      isTranslated: false,
+      editions: []
     },
     mutations: {
       setPageNumber: (state, pageNumber) => {
@@ -29,6 +30,14 @@ export default new Vuex.Store({
 
       setIsTranslated: (state, isTranslated) => {
         state.isTranslated = isTranslated;
+      },
+
+      setQuranEditions: (state, editions) => {
+        state.editions = editions;
+      },
+
+      setCurrentEdition: (state, edition) => {
+        state.edition = edition;
       }
     },
 
@@ -47,11 +56,15 @@ export default new Vuex.Store({
 
       getIstranslated(state) {
         return state.isTranslated
+      },
+
+      getEditions(state) {
+        return state.editions
       }
     },
 
     actions: {
-        async getQuranPage({ commit, state}, {page, edition = null}) {
+        async getQuranPage({ commit, state}, {page = state.pageNumber, edition = null}) {
           commit('setPageNumber', page);
 
           if (!edition) {
@@ -63,6 +76,11 @@ export default new Vuex.Store({
             commit('setTranslatedPage', response.data.data)
             commit('setIsTranslated', true)
           }
+        },
+
+        async getQuranEditions({ commit }) {
+          let response = await axios.get(QURAN_EDITIONS_API({})); 
+          commit('setQuranEditions', response.data.data)
         }
     }
   })
