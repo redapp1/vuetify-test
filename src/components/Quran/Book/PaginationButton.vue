@@ -19,18 +19,33 @@ export default {
         }, 
 
         disabled() {
-            console.log(this.currentPage)
             return this.isNextPage && this.currentPage > 603 ||
                     !this.isNextPage && this.currentPage < 2
+        },
+
+        currentEdition() {
+            return this.$store.getters.getCurrentEdition
+        },
+
+        isTranslated() {
+            return this.$store.getters.getIstranslated
         }
     },
 
     methods: {
         goToPage() {
             let currentPageNumber = this.$store.getters.getCurrentPage;
-            let nextPageNumber = this.isNextPage ? currentPageNumber + 1 : currentPageNumber - 1 
-            
-            this.$router.push({name: 'page', params: { page: nextPageNumber }})
+            let nextPageNumber = this.isNextPage ? currentPageNumber + 1 
+                                    : currentPageNumber - 1 
+            if (this.isTranslated) {
+                this.$router.push(
+                    {   
+                        name: 'translation', 
+                        params: { page: nextPageNumber, edition: this.currentEdition }
+                    })
+            } else {
+                this.$router.push({name: 'page', params: { page: nextPageNumber }})
+            }
         }
     }
 }

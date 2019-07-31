@@ -18,6 +18,12 @@ const routes = [
             name: 'page', 
             component: Page,
             props: (route) => ({ pageNumber: +route.params.page })
+          },
+          { 
+            path: 'page/:page/edition/:edition', 
+            name: 'translation', 
+            component: Page,
+            props: (route) => ({ pageNumber: +route.params.page, edition: route.params.edition })
           }
       ]
     }

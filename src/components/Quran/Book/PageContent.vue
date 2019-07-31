@@ -1,5 +1,5 @@
 <template>
-    <div dir="rtl">
+    <div :dir="isTranslated ? '' : 'rtl'">
         <PageAyah 
             v-for="(ayah, index) in pageAyahs" 
             :ayah = ayah
@@ -16,6 +16,12 @@ export default {
 
     components: {
         PageAyah
+    }, 
+
+    computed: {
+        isTranslated() {
+            return this.$store.getters.getIstranslated
+        }
     }
 }
 </script>
