@@ -1,5 +1,8 @@
 <template>
-    <div :dir="isTranslated ? '' : 'rtl'">
+    <div 
+        :dir="isTranslated ? '' : 'rtl'" 
+        class="text-justify grey lighten-1 white--text pa-4 body-2"
+    >
         <PageAyah 
             v-for="(ayah, index) in pageAyahs" 
             :ayah = ayah

@@ -1,5 +1,9 @@
 <template>
-    <v-btn @click="goToPage" :disabled="disabled" x-small>
+    <v-btn 
+        text 
+        @click="goToPage" 
+        :disabled="disabled" 
+    >
         <template v-if="isNextPage">
             <v-icon>navigate_next</v-icon>
         </template>

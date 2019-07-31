@@ -3,13 +3,13 @@
         <template v-if="page">
             <v-card>
                 <v-card-title>
-                    <PageHeader :pageNumber="page.number"/>
+                    <PageHeader :page="page"/>
                 </v-card-title>
                 <v-card-text>
                     <PageContent :pageAyahs="page.ayahs"/>
                 </v-card-text>
                 <v-card-actions>
-                    <PageFooter :pageNumber="page.number"/>
+                    <PageFooter :page="page"/>
                 </v-card-actions>     
             </v-card>
         </template>
@@ -51,4 +51,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>
+
 
