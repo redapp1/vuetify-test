@@ -1,7 +1,7 @@
 <template>
-    <div>
-        ({{ ayah.number}}) {{ ayah.text }}
-    </div>
+    <span>
+        {{ ayah.text }} ({{ ayah.number}})
+    </span>
 </template>
 
 <script>

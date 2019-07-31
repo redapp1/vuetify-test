@@ -1,6 +1,6 @@
 <template>
    <v-card
-      class="mx-10"
+      class=""
     >
       <v-list>
         <v-list-item>

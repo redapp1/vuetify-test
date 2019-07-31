@@ -10,11 +10,11 @@ const routes = [
     { path: '/', component: Home},
     { path: '/quran', 
       component: Quran,
-      redirec: '/quran/page',
-      beforeEnter: (to, from, next) => {
-        if (to.params.page) next()
-
-        next('/quran/page/1')
+      beforeEnter: (to, from, next) => {  
+          if (typeof to.params.page !== 'undefined') {
+              next()
+          }                                                                    
+        next('/quran/page/1')   
       },
       children: [
         {path: 'page', redirect: 'page/1'},

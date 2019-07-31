@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-if="page">
-            <v-card class="mt-5">
+            <v-card>
                 <v-card-title>
                     <PageHeader :pageNumber="page.number"/>
                 </v-card-title>

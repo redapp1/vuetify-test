@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div dir="rtl">
         <PageAyah 
             v-for="(ayah, index) in pageAyahs" 
             :ayah = ayah

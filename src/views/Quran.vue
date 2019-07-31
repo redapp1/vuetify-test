@@ -1,17 +1,17 @@
 <template>
-    <v-container grid-list-md fluid>
+    <v-container grid-list-md>
         <v-layout row>
-            <v-flex xs-12 md-4>
+            <v-flex sm12 md4>
                 <QuranNavside />
             </v-flex>
-            <v-flex xs-12 md-8>
+            <v-flex sm12 md8>
                 <v-layout row>
-                    <v-flex xs-12 md-12>
+                    <v-flex sm12 md12>
                         <QuranNavbar/>
                     </v-flex>
                 </v-layout>
                 <v-layout row>
-                    <v-flex xs-12 md-12>
+                    <v-flex sm12 md12>
                         <v-content>
                             <router-view :key="$route.fullPath"></router-view>
                         </v-content>
