@@ -5,10 +5,10 @@
                 <v-card-title>
                     <PageHeader :page="page"/>
                 </v-card-title>
-                <v-card-text>
+                <v-card-text class="mb-0">
                     <PageContent :pageAyahs="page.ayahs"/>
                 </v-card-text>
-                <v-card-actions>
+                <v-card-actions class="mt-0">
                     <PageFooter :page="page"/>
                 </v-card-actions>     
             </v-card>

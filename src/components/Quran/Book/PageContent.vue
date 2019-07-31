@@ -1,7 +1,7 @@
 <template>
     <div 
         :dir="isTranslated ? '' : 'rtl'" 
-        class="text-justify grey lighten-1 white--text pa-4 body-2"
+        class="text-justify grey lighten-1 white--text pa-4 body-2 mb-0"
     >
         <PageAyah 
             v-for="(ayah, index) in pageAyahs" 

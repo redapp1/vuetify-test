@@ -1,5 +1,5 @@
 <template>
-    <v-container class="grey lighten-1 pa-0 px-2">
+    <v-container class="grey lighten-1 pa-0 px-2 mt-0 mx-2">
         <v-layout>
             <v-flex class="text-center">
                 <PaginationButton :isNextPage="false"/>
