@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-tabs mobile-break-point>
+        <v-tabs show-arrows>
             <v-tab :to="{name: 'page', param: {'page': pageNumber}}"> Arabic </v-tab>
             <v-tab :to="{name: 'translation', params: {'page': pageNumber, 'edition': edition}}"> Translation </v-tab>
             <v-tab> Interpretaion </v-tab>
