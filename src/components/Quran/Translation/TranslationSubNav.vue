@@ -1,17 +1,17 @@
 <template>
-    <v-list-group
-          prepend-icon="account_circle"
-          value="true"
-        >
+    <v-list-group value="true">
           <template v-slot:activator>
             <v-list-item-title>Translation</v-list-item-title>
           </template>
             <v-select
                 :items="editions"
                 name="category"
-                item-text="identifier"
+                item-value="identifier"
+                item-text="name"
                 v-model="currentEdition"
                 @change="changeEdition($event)"
+                class="mx-2"
+                light
             >
             </v-select>
         </v-list-group>
