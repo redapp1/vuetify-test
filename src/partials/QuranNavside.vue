@@ -1,7 +1,5 @@
 <template>
-   <v-card
-      class=""
-    >
+   <v-card>
       <v-list>
         <v-list-item>
           <v-list-item-icon>

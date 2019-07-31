@@ -1,18 +1,19 @@
 <template>
     <nav>
-        <v-toolbar dense class="grey white--text">
-            <v-toolbar-items>
-                <v-btn text>Arabic</v-btn>
-                <v-btn text>Translation</v-btn>
-                <v-btn text>Interpretaion</v-btn>
-            </v-toolbar-items>
-        </v-toolbar>
-
+        <v-tabs mobile-break-point>
+            <v-tab :to="{name: 'page', param: {page: pageNumber}}"> Arabic </v-tab>
+            <v-tab> Translation </v-tab>
+            <v-tab> Interpretaion </v-tab>
+        </v-tabs>
     </nav>
 </template>
 
 <script>
 export default {
-    
+    computed: {
+        pageNumber() {
+            return this.$store.getCurrentPage
+        }
+    }
 }
 </script>
