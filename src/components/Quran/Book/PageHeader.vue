@@ -1,5 +1,5 @@
 <template>
-    <v-container class="title grey lighten-1">
+    <v-container class="title grey lighten-1 pa-0 px-2">
         <v-layout>
             <v-flex xs12 md3 class="text-left">
                     <span class="text-left"> {{ page.ayahs[0].surah.name }} </span>
