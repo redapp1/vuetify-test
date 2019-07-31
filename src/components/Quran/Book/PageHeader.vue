@@ -10,7 +10,7 @@
                 <PaginationButton :isNextPage="true"/>
             </v-flex>
             <v-flex xs12 md3 class="text-right">
-                <span class="text-right"> {{ page.ayahs[0].juz }} جز </span>
+                <span class="text-right"> {{ page.ayahs[0].juz }} الجزء </span>
             </v-flex>
         </v-layout>
     </v-container>
