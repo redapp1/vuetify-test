@@ -35,8 +35,6 @@ export default {
     async mounted() {
         this.$store.dispatch('getQuranEditions');
 
-        console.log(this.$route.params.edition);
-
         if (this.$route.params.edition) {
             this.$store.commit('setCurrentEdition', this.$route.params.edition)
         }

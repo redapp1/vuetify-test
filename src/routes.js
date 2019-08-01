@@ -3,7 +3,8 @@ import VueRouter from 'vue-router';
 import Home from './views/Home';
 import Quran from './views/Quran';
 import Page from './components/Quran/Book/Page';
-import SignUp from './components/Auth/SignUp'
+import SignUp from './components/Auth/SignUp';
+import FoundedAyahs from './components/Quran/Browser/FoundedAyahs'
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
               edition: route.params.edition,
               selectedAyah: +route.query.ayah  
             })
+          },
+          {
+            path: 'search/:keyWord',
+            component: FoundedAyahs,
+            name: 'search'
           }
       ]
     }
