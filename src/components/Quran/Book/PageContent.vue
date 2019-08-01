@@ -6,8 +6,10 @@
         <PageAyah 
             v-for="(ayah, index) in pageAyahs" 
             :ayah = ayah
-            :key="index">
-        </PageAyah>
+            :selected = "selectedAyah == ayah.numberInSurah"
+            :key="index"
+            @select:ayah="selectAyah($event)"
+            ></PageAyah>
     </div>
 </template>
 
@@ -21,9 +23,20 @@ export default {
         PageAyah
     }, 
 
+    methods: {
+        selectAyah(ayah) {
+            console.log(ayah)
+            this.$store.commit('setSelectedAyah', ayah)
+        }
+    },
+
     computed: {
         isTranslated() {
             return this.$store.getters.getIstranslated
+        },
+
+        selectedAyah() {
+            return this.$store.getters.getSelectedAyah
         }
     }
 }

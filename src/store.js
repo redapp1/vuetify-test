@@ -13,7 +13,8 @@ export default new Vuex.Store({
       edition: 'en.asad', 
       isTranslated: false,
       editions: [],
-      countries: []
+      countries: [],
+      selectedAyah: 1
     },
     mutations: {
       setPageNumber: (state, pageNumber) => {
@@ -43,6 +44,10 @@ export default new Vuex.Store({
       setCountries: (state, countries) => {
         state.countries = countries;
       },
+
+      setSelectedAyah: (state, selectedAyah) => {
+        state.selectedAyah = selectedAyah;
+      },
     },
 
     getters: {
@@ -68,6 +73,10 @@ export default new Vuex.Store({
 
       getCountries(state) {
         return state.countries;
+      },
+
+      getSelectedAyah(state) {
+        return state.selectedAyah;
       }
     },
 
