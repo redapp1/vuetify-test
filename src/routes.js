@@ -1,13 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home';
-import Quran from '../views/Quran';
-import Page from '../components/Quran/Book/Page'
+import Home from './views/Home';
+import Quran from './views/Quran';
+import Page from './components/Quran/Book/Page';
+import SignUp from './components/Auth/SignUp'
 
 Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: Home},
+    { path: '/signup', component: SignUp, name: 'signup' },
     { path: '/quran', 
       component: Quran,
       children: [

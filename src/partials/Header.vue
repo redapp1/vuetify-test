@@ -16,6 +16,13 @@
         <span>Quran</span>
         <v-icon>book</v-icon>
       </v-btn>
+
+      <v-btn
+        to="/signup"
+      >
+        <span>SignUp</span>
+        <v-icon>person</v-icon>
+      </v-btn>
     </v-bottom-navigation>
 </template>
 

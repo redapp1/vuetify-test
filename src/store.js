@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import { QURAN_PAGE_API, QURAN_EDITIONS_API } from '../config/config';
-import * as mutations from './mutation-types'
+import { QURAN_PAGE_API, QURAN_EDITIONS_API, COUNTRIES_API } from '../config/config';
 
 Vue.use(Vuex)
 
@@ -13,7 +12,8 @@ export default new Vuex.Store({
       pageNumber: 1,
       edition: 'en.asad', 
       isTranslated: false,
-      editions: []
+      editions: [],
+      countries: []
     },
     mutations: {
       setPageNumber: (state, pageNumber) => {
@@ -38,7 +38,11 @@ export default new Vuex.Store({
 
       setCurrentEdition: (state, edition) => {
         state.edition = edition;
-      }
+      },
+
+      setCountries: (state, countries) => {
+        state.countries = countries;
+      },
     },
 
     getters: {
@@ -60,6 +64,10 @@ export default new Vuex.Store({
 
       getEditions(state) {
         return state.editions
+      },
+
+      getCountries(state) {
+        return state.countries;
       }
     },
 
@@ -81,6 +89,11 @@ export default new Vuex.Store({
         async getQuranEditions({ commit }) {
           let response = await axios.get(QURAN_EDITIONS_API({})); 
           commit('setQuranEditions', response.data.data)
+        },
+
+        async getCountries({ commit }) {
+          let response = await axios.get(COUNTRIES_API()); 
+          commit('setCountries', response.data)
         }
     }
   })
